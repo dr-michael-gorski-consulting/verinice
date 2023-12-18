@@ -168,7 +168,7 @@ pipeline {
     post {
         always {
             // recordIssues(tools: [mavenConsole()])
-            recordIssues(tools: [java()])
+            // recordIssues(tools: [java()])
             recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, normalTags: 'TODO', includePattern: '**/*.java, **/*.xml')])
         }
         failure {
