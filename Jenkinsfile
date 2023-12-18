@@ -166,11 +166,11 @@ pipeline {
         }
     }
     post {
-        always {
+        // always {
             // recordIssues(tools: [mavenConsole()])
             // recordIssues(tools: [java()])
             // recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, normalTags: 'TODO', includePattern: '**/*.java, **/*.xml')])
-        }
+        // }
         failure {
             emailext body: '${JELLY_SCRIPT,template="text"}', subject: '$DEFAULT_SUBJECT', to: 'frank.fuhrmann@michaelgorski.net'
         }
