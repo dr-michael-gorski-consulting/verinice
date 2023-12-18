@@ -169,10 +169,10 @@ pipeline {
         always {
             // recordIssues(tools: [mavenConsole()])
             // recordIssues(tools: [java()])
-            recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, normalTags: 'TODO', includePattern: '**/*.java, **/*.xml')])
+            // recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, normalTags: 'TODO', includePattern: '**/*.java, **/*.xml')])
         }
         failure {
-            emailext body: '${JELLY_SCRIPT,template="text"}', subject: '$DEFAULT_SUBJECT', to: 'dm@sernet.de, uz@sernet.de, jk@sernet.de, ak@sernet.de'
+            emailext body: '${JELLY_SCRIPT,template="text"}', subject: '$DEFAULT_SUBJECT', to: 'frank.fuhrmann@michaelgorski.net'
         }
         success {
             sh './verinice-distribution/build.sh QUALIFIER=${qualifier} clean'
